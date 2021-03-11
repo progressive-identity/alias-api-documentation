@@ -1,14 +1,4 @@
-# Getting started
-
-As a company, you have collected and stored data about your users in your databases, buckets or even on paper. 
-
-To find out what you can and cannot do with this data, the DPO of your company has created processing records.
-
-We'll use this papers as references to describe the personal data you have in your systems and to facilitate the matching between this data and the GDPR rules that apply to them.
-
-This pre-work to set-up Alias will need the intervention of the developer ([part.1](#describing-data-models-developer-work) and [part.3]()) and of the DPO ([part.2](#mapping-data-models-to-processing-records-dpo-work)).
-
-## Describing data models (developer work)
+# Describing data models (developer work)
 
 Here are the elements you, as a developer, need to look for the processing records your DPO gave to you:  
 

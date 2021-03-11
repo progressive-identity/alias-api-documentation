@@ -37,19 +37,41 @@ module.exports = {
     nav: [
       {
         text: 'Getting started',
-        link: '/guide/getting-started',
+        link: '/getting-started/introduction',
       }
     ],
     sidebar: {
-      '/guide/': [
+      '/getting-started/': [
         {
-          title: 'Guide',
+          title: 'Getting started',
           collapsable: false,
           children: [
             'introduction',
-            'getting-started'
+            'entering-processing-records',
+            'declaring-locations',
+            'setup-events'
           ]
         },
+        {
+          title: 'Alias for developers',
+          path: '/developers/event-system',
+          collapsable: false,
+          children: [
+            '/developers/event-system',
+            '/developers/unit-test-for-law'
+          ]
+        },
+        {
+          title: 'Alias for DPO',
+          collapsable: false,
+          path: '/dpo/events',
+          children: [
+            '/dpo/events',
+            '/dpo/processing-records'
+          ]
+        }
+      ],
+      '/developers/': [
         {
           title: 'Alias for developers',
           collapsable: false,
@@ -57,7 +79,9 @@ module.exports = {
             'event-system',
             'unit-test-for-law'
           ]
-        },
+        }
+      ],
+      '/dpo/': [
         {
           title: 'Alias for DPO',
           collapsable: false,

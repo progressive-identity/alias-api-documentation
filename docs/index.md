@@ -3,7 +3,7 @@ home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
 tagline: Tag your data, respect the GDPR
 actionText: Getting started →
-actionLink: /guide/getting-started
+actionLink: /getting-started/introduction
 features:
 - title: Feature 1 Title
   details: Feature 1 Description
