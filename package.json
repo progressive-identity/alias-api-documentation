@@ -1,0 +1,20 @@
+{
+  "name": "alias-api-documentation",
+  "version": "0.0.1",
+  "description": "Tag your data, respect the GDRP",
+  "main": "index.js",
+  "authors": {
+    "name": "Jules Prévost",
+    "email": "jules@gdpr.dev"
+  },
+  "repository": "https://github.com/progressive-identity/alias-api-documentation/alias-api-documentation",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "docs:build": "vuepress build docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
