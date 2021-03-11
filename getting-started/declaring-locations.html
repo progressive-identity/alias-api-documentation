@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Describing data models (developer work) | Alias API Documentation</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Tag your data, respect the GDRP">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/alias-api-documentation/assets/css/0.styles.505ca651.css" as="style"><link rel="preload" href="/alias-api-documentation/assets/js/app.05f79249.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/2.fa6722c4.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/6.c3fd3256.js" as="script"><link rel="prefetch" href="/alias-api-documentation/assets/js/10.f49a4ed7.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/11.60ab2db7.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/12.2057e412.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/13.9ade14f4.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/14.7bc2c29e.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/15.d79611fa.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/16.be4c4a17.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/17.60618c8c.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/18.a74d6463.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/19.92b91952.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/3.f17d65eb.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/4.fbfb9e52.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/5.0c35aff5.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/7.44258a9d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/8.192e6f3d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/9.09b999b6.js">
+    <link rel="stylesheet" href="/alias-api-documentation/assets/css/0.styles.505ca651.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/alias-api-documentation/" class="home-link router-link-active"><!----> <span class="site-name">Alias API Documentation</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/alias-api-documentation/getting-started/introduction.html" class="nav-link">
+  Getting started
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/alias-api-documentation/getting-started/introduction.html" class="nav-link">
+  Getting started
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Getting started</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/alias-api-documentation/getting-started/introduction.html" class="sidebar-link">What is alias?</a></li><li><a href="/alias-api-documentation/getting-started/entering-processing-records.html" class="sidebar-link">Entering processing records (DPO work)</a></li><li><a href="/alias-api-documentation/getting-started/declaring-locations.html" aria-current="page" class="active sidebar-link">Describing data models (developer work)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/alias-api-documentation/getting-started/declaring-locations.html#mapping-data-models-to-processing-records-dpo-work" class="sidebar-link">Mapping data models to processing records (DPO work)</a></li></ul></li><li><a href="/alias-api-documentation/getting-started/setup-events.html" class="sidebar-link">Set up events (DPO work)</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/alias-api-documentation/developers/event-system" class="sidebar-heading clickable"><span>Alias for developers</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/alias-api-documentation/developers/event-system.html" class="sidebar-link">Events</a></li><li><a href="/alias-api-documentation/developers/unit-test-for-law.html" class="sidebar-link">GDPR 'Unit Tests'</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/alias-api-documentation/dpo/events" class="sidebar-heading clickable"><span>Alias for DPO</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/alias-api-documentation/dpo/events.html" class="sidebar-link">Events</a></li><li><a href="/alias-api-documentation/dpo/processing-records.html" class="sidebar-link">Processing records</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="describing-data-models-developer-work"><a href="#describing-data-models-developer-work" class="header-anchor">#</a> Describing data models (developer work)</h1> <p>Here are the elements you, as a developer, need to look for the processing records your DPO gave to you:</p> <p><img src="/alias-api-documentation/assets/img/processing-record.6346e18d.png" alt="A partial processing record"></p> <p>Let's say that you store:</p> <ul><li><p>the 'nom' of your users in the 'last_name' field of a 'users' PostgreSQL table.</p></li> <li><p>the 'numéro de téléphone' in the 'phone_number' field of a 'phones' table</p></li> <li><p>the IBAN, BIC, 'numéro de compte'... as a single image inside a S3 bucket (strange idea but no one is perfect) called 'iencli_bank_account_infos'</p></li> <li><p>the 'prénom' as a physical paper in a real library. Yeah, even if you've decided to print some of your user infos (because why not) instead of storing it numerically, Alias is able to reference them.</p></li></ul> <p>You can reference this data in the Alias system by sending a simple JSON object which look like that:</p> <div class="language-json extra-class"><pre class="language-json"><code> <span class="token punctuation">{</span>
+   <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;processingRecordRef&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">// it's the processing record number</span>
+      <span class="token property">&quot;dataCategories&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Etat-civil, identité, données d'identification, images&quot;</span><span class="token punctuation">,</span>
+          <span class="token comment">// the name of the dataCategory in the processing record</span>
+          <span class="token property">&quot;dataModel&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;users/last_name&quot;</span><span class="token punctuation">,</span>
+              <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom&quot;</span><span class="token punctuation">,</span> 
+              <span class="token comment">// optional, used to help your DPO to understand the content of the data</span>
+              <span class="token property">&quot;storage_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_field&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;phones/phone_number&quot;</span><span class="token punctuation">,</span>
+              <span class="token property">&quot;storage_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_field&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bibliotheque-de-ma-super-entreprise/allee-22/dossier-prenoms&quot;</span><span class="token punctuation">,</span>
+              <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom&quot;</span><span class="token punctuation">,</span>
+              <span class="token property">&quot;storage_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;physical_paper&quot;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Informations d'ordre économique et financier&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;dataModel&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://iencli_bank_account_infos.fr&quot;</span><span class="token punctuation">,</span>
+              <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;PNGs contenant les informations bancaires de nos clients&quot;</span><span class="token punctuation">,</span>
+              <span class="token property">&quot;storage_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bucket&quot;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+ <span class="token punctuation">}</span>
+</code></pre></div><p>When you have done, you can take some rest and let your DPO take the lead for the next step.</p> <h2 id="mapping-data-models-to-processing-records-dpo-work"><a href="#mapping-data-models-to-processing-records-dpo-work" class="header-anchor">#</a> Mapping data models to processing records (DPO work)</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/alias-api-documentation/getting-started/entering-processing-records.html" class="prev">
+        Entering processing records (DPO work)
+      </a></span> <span class="next"><a href="/alias-api-documentation/getting-started/setup-events.html">
+        Set up events (DPO work)
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/alias-api-documentation/assets/js/app.05f79249.js" defer></script><script src="/alias-api-documentation/assets/js/2.fa6722c4.js" defer></script><script src="/alias-api-documentation/assets/js/6.c3fd3256.js" defer></script>
+  </body>
+</html>
