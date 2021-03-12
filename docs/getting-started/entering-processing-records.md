@@ -11,3 +11,4 @@ The first step is then to login, using the credentials that CODE IS LAW sent to 
 When the DPO is logged in, he can check and complete the informations related to its organization, and the ones of its providers and partners. To do so, the DPO can use the "Organizations" section.
 
 ![Organization](./assets/images/organizations-page.png)
+

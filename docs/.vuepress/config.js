@@ -47,11 +47,12 @@ module.exports = {
           collapsable: false,
           children: [
             'introduction',
+            'steps',
             'entering-processing-records',
             'declaring-locations',
             'matching-locations-datatypes',
             'setup-events',
-            'sanitizing-data-history'
+            'setup-events-dev'
           ]
         },
         {
@@ -59,7 +60,7 @@ module.exports = {
           path: '/developers/event-system',
           collapsable: false,
           children: [
-            '/developers/event-system',
+            '/developers/sanitizing-data-history',
             '/developers/unit-test-for-law'
           ]
         },
@@ -78,7 +79,7 @@ module.exports = {
           title: 'Alias for developers',
           collapsable: false,
           children: [
-            'event-system',
+            'sanitizing-data-history',
             'unit-test-for-law'
           ]
         }

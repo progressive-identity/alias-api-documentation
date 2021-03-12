@@ -26,7 +26,7 @@ You can reference this data types in the Alias system by sending a simple JSON o
   {
     "items": [
       {
-        "dataTypeRef": "prénom",
+        "dataTypeRef": "first_name",
         "items": [
           {
             "location": "db_xz42/users/first_name", //the precision of the location is up to you
@@ -47,7 +47,7 @@ You can reference this data types in the Alias system by sending a simple JSON o
         ]
       },
       {
-        "dataTypeRef": "nom",
+        "dataTypeRef": "name",
         "items": [
           {
             "location": "db_xz42/users/last_name",
