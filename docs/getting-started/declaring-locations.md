@@ -1,65 +1,83 @@
-# Describing data models (developer work)
+# Declaring data locations (developer work)
 
-Here are the elements you, as a developer, need to look for the processing records your DPO gave to you:  
+The DPO has finished to fill in the processing records. You can congratulate him and read the document he sent to you.
 
-![A partial processing record](./assets/images/processing-record.png)
+EX DE DOCUMENT OU D'OBJET JSON
+
+This paper contains all the personal information, listed as data types, that your company stores on its users.
+
+Your mission, Developer, should you decide to accept it, consists in finding the location of the data type referenced in the doc the DPO sent to you and associate a dataTypeRef with the location of the data in your systems.
 
 Let's say that you store: 
 
-- the 'nom' of your users in the 'last_name' field of a 'users' PostgreSQL table. 
+- the 'prénom' of your users in the 'first_name' field of a 'users' in two PostgreSQL tables
 
-- the 'numéro de téléphone' in the 'phone_number' field of a 'phones' table
+- the 'prénom' of your clients in the 'client_list' of a CRM called 'CRM_1'
 
-- the IBAN, BIC, 'numéro de compte'... as a single image inside a S3 bucket (strange idea but no one is perfect) called 'iencli_bank_account_infos'
+- the 'nom' of your users in the 'last_name' field of a 'users' in two PostgreSQL tables
 
-- the 'prénom' as a physical paper in a real library. Yeah, even if you've decided to print some of your user infos (because why not) instead of storing it numerically, Alias is able to reference them.
+- the 'nom' of your client as a physical paper in a real library. Yeah, even if you've decided to print some of your user infos (because why not) instead of storing it numerically, Alias is able to reference them.
 
-You can reference this data in the Alias system by sending a simple JSON object which look like that:
+- the IBAN of your client as a single image inside a S3 bucket (strange idea but no one is perfect) called 'iencli_bank_account_infos'
+
+You can reference this data types in the Alias system by sending a simple JSON object which look like that:
 
 ```json
- {
-   "items": [
-    {
-      "processingRecordRef": 1, // it's the processing record number
-      "dataCategories": [
-        {
-          "name": "Etat-civil, identité, données d'identification, images",
-          // the name of the dataCategory in the processing record
-          "dataModel": [
-            {
-              "location": "users/last_name",
-              "description": "nom", 
-              // optional, used to help your DPO to understand the content of the data
-              "storage_type": "db_field"
-            },
-            {
-              "location": "phones/phone_number",
-              "storage_type": "db_field"
-            },
-            {
-              "location": "bibliotheque-de-ma-super-entreprise/allee-22/dossier-prenoms",
-              "description": "prénom",
-              "storage_type": "physical_paper"
-            }
-          ]
-        },
-        {
-          "name": "Informations d'ordre économique et financier",
-          "dataModel": [
-            {
-              "location": "https://iencli_bank_account_infos.fr",
-              "description": "PNGs contenant les informations bancaires de nos clients",
-              "storage_type": "bucket"
-            }
-          ]
-        }
-      ]
-    },
-  ]
- }
+  {
+    "items": [
+      {
+        "dataTypeRef": "prénom",
+        "items": [
+          {
+            "location": "db_xz42/users/first_name", //the precision of the location is up to you
+            "description": "prénom des utilisateurs du site exemple.com", 
+            // optional, used to help your DPO to understand the content of the data
+            "storage_type": "db_field"
+          },
+          {
+            "location": "db_xz23/users/first_name",
+            "description": "réplication du prénom des utilisateurs exemple.com", 
+            "storage_type": "db_field"
+          },
+          {
+            "location": "CRM_1/client_list_1",
+            "description": "prénom des clients de la société Exemple", 
+            "storage_type": "CRM"
+          }
+        ]
+      },
+      {
+        "dataTypeRef": "nom",
+        "items": [
+          {
+            "location": "db_xz42/users/last_name",
+            "description": "nom des utilisateurs du site exemple.com", 
+            "storage_type": "db_field"
+          },
+          {
+            "location": "db_xz23/users/last_name",
+            "storage_type": "db_field"
+          },
+          {
+            "location": "bibliotheque_1/allee22/dossier_clients",
+            "description": "nom des clients de la société Exemple", 
+            "storage_type": "physical_paper"
+          }
+        ]
+      },
+      {
+        "dataTypeRef": "IBAN",
+        "items": [
+          {
+            "location": "https://iencli_bank_account_infos.fr",
+            "description": "PNGs contenant les informations bancaires de nos clients", 
+            "storage_type": "bucket"
+          }
+        ]
+      }
+    ]
+  }
 ```
 
-When you have done, you can take some rest and let your DPO take the lead for the next step. 
-
-## Mapping data models to processing records (DPO work)
+When you are done, you can take some rest and let your DPO take the lead for the next step.
 
