@@ -49,7 +49,9 @@ module.exports = {
             'introduction',
             'entering-processing-records',
             'declaring-locations',
-            'setup-events'
+            'matching-locations-datatypes',
+            'setup-events',
+            'sanitizing-data-history'
           ]
         },
         {
