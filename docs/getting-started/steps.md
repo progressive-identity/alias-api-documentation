@@ -6,11 +6,11 @@ To make this link possible, the DPO(s) and developer(s) of your company will nee
 
 1. The DPO digitizes the processing records in the Alias DPO UI. This processing records contain the GDPR rules that apply to the data in your system. When he is done, Alias will automatically create a document containing all the different data types (first name, phone number, IBAN...) concerning your users. 
 
-2. From this data types document, the developer needs to identify where they are stored (in a bucket, in databases, in a CRM...) and send an JSON object to the Alias API containing the locations of this data types. 
+2. From this data types document, the developer needs to identify where they are stored (in a bucket, in databases, in a CRM...) and send a JSON object to the Alias API containing the locations of this data types. 
 
 3. Data types are now bind with one or several locations. In the Alias DPO UI, the DPO now needs to bind each data type-locations couple with a specific purpose in a processing record. This step will help Alias to understand which storage time it should associate to this data type-location couple.
 
-4. The DPO creates events in the Alias DPO UI. This events, like "a user has been created" or "a user has clicked on a newsletter", will be used by Alias to determine what to do with the data. For example, Alias will be able to notify you if you need to archive some data because its conservation date has been reached.
+4. The DPO creates events in the Alias DPO UI. This events, like "a user has been created" or "a user has clicked on a newsletter", will be used by Alias to determine what to do with the data. For example, Alias will be able to notify you when you will need to archive some data because its conservation date has been reached.
 
 5. The developer implements CRON Jobs in order to notify Alias of all the events that occured during the day for its users. 
 
