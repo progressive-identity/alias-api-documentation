@@ -2,7 +2,7 @@
 
 Alias creates a bridge between your real data stored in your systems and the legal rules that applies to them. 
 
-To make this link possible, the DPO(s) and developer(s) of your company will need to follow 5 configurations steps.
+To make this link possible, the DPO(s) and developer(s) of your company will need to follow 5 configuration steps.
 
 1. The DPO digitizes the processing records in the Alias DPO UI. This processing records contain the GDPR rules that apply to the data in your system. When he is done, Alias will automatically create a document containing all the different data types (first name, phone number, IBAN...) concerning your users. 
 
