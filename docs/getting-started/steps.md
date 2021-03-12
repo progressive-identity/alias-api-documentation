@@ -8,7 +8,7 @@ To make this link possible, the DPO(s) and developer(s) of your company will nee
 
 2. From this data types document, the developer needs to identify where they are stored (in a bucket, in databases, in a CRM...) and send an JSON object to the Alias API containing the locations of this data types. 
 
-3. The DPO receives the data type locations and bind each location with events that can affect the data according to the GDPR rules (ex: a user is created, a user has clicked on a newsletter...). This events are created in the Alias DPO UI by the DPO. Alias creates a document containing all the events that need to be notified to the Alias API.
+3. Data types are now bind with one or several locations. In the Alias DPO UI, the DPO now needs to bind each data type-locations couple with a specific purpose in a processing record. This step will help Alias to understand which storage time it should associate to this data type-location couple.
 
 4. The DPO creates events in the Alias DPO UI. This events, like "a user has been created" or "a user has clicked on a newsletter", will be used by Alias to determine what to do with the data. For example, Alias will be able to notify you if you need to archive some data because its conservation date has been reached.
 
