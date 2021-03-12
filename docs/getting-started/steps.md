@@ -14,7 +14,7 @@ To make this link possible, the DPO(s) and developer(s) of your company will nee
 
 5. The developer implements CRON Jobs in order to notify Alias of all the events that occured during the day for its users. 
 
-And... that's all, you are all set. You can now monitor all your data, be notified when you have to delete or archive some data and check if you have your user's authorization to do something with their data (such as send marketing email).
+And... that's all, you are all set. You can now monitor all your data, be notified when you have to delete or archive some data and check if you have your user's authorization to do something with their data (such as sending marketing email).
 
 If you have old data you need to tag with Alias, click here to know how you can do that.
 If you want to monitor your users' consents, click here to see how to do that. 
