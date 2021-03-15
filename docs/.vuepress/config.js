@@ -50,8 +50,7 @@ module.exports = {
             'steps',
             'entering-processing-records',
             'declaring-locations',
-            'matching-locations-datatypes',
-            'setup-events',
+            'conservation-time',
             'setup-events-dev'
           ]
         },
