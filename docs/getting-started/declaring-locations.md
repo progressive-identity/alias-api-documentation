@@ -1,6 +1,6 @@
 # Déclarer les localisations des types de données (travail du développeur)
 
-Développeur (de tous les pays, unissez-vous !), votre travail commence lorsque votre DPO a terminé de remplir ses fiches de traitement, cliqué sur "Générer les types de données" et vous a envoyé l'objet JSON créé par cette commande. 
+Développeurs (de tous les pays, unissez-vous !), votre travail commence lorsque votre DPO a terminé de remplir ses fiches de traitement, cliqué sur "Générer les types de données" et vous a envoyé l'objet JSON créé par cette commande. 
 
 Cet objet contient toutes les données personelles, listées par type de données, que votre entreprise conserve sur les utilisateurs qui consomment ses services et dont le DPO a connaissance.
 
