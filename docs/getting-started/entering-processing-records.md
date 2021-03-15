@@ -20,3 +20,5 @@ Après avoir validé une fiche de traitement, une partie des informations qu'ell
 ![Data Processings](./assets/images/data-processings.png)
 
 Une fois les fiches de traitement renseignées dans le système, le DPO clique sur 'Générer les types de données' afin de créer un objet JSON contenant tous les types de données répertoriées dans les fiches de traitement.
+
+![Data Processings](./assets/images/generate-data-types.png)
