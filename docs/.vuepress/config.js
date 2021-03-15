@@ -61,6 +61,7 @@ module.exports = {
           collapsable: false,
           children: [
             '/developers/sanitizing-data-history',
+            '/developers/handle-consents',
             '/developers/unit-test-for-law'
           ]
         },
@@ -70,7 +71,8 @@ module.exports = {
           path: '/dpo/events',
           children: [
             '/dpo/events',
-            '/dpo/processing-records'
+            '/dpo/processing-records',
+            '/dpo/consent-form-builder'
           ]
         }
       ],
@@ -80,6 +82,7 @@ module.exports = {
           collapsable: false,
           children: [
             'sanitizing-data-history',
+            'handle-consents',
             'unit-test-for-law'
           ]
         }
@@ -90,7 +93,8 @@ module.exports = {
           collapsable: false,
           children: [
             'events',
-            'processing-records'
+            'processing-records',
+            'consent-form-builder'
           ]
         }
       ]
