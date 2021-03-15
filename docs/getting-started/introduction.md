@@ -1,4 +1,6 @@
-# What is alias? 
+# Alias, c'est quoi ? 
+
+!!BROUILLON A ECRIRE!!
 
 Alias est une API pour les devs et une interface pour les DPO
 Utilité : assurer une cohérence et une véracité juridique et technique vis à vis du RGPD. 

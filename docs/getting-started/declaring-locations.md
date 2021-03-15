@@ -1,43 +1,69 @@
-# Declaring data locations (developer work)
+# Déclarer les localisations des types de données (travail du développeur)
 
-The DPO has finished to fill in the processing records. You can congratulate him and read the document he sent to you.
+Développeur (de tous les pays, unissez-vous !), votre travail commence lorsque votre DPO a terminé de remplir ses fiches de traitement, cliqué sur "Générer les types de données" et vous a envoyé l'objet JSON créé par cette commande. 
 
-EX DE DOCUMENT OU D'OBJET JSON
-
-This paper contains all the personal information, listed as data types, that your company stores on its users.
-
-Your mission, Developer, should you decide to accept it, consists in finding the location of the data type referenced in the doc the DPO sent to you and associate a dataTypeRef with the location of the data in your systems.
-
-Let's say that you store: 
-
-- the 'prénom' of your users in the 'first_name' field of a 'users' in two PostgreSQL tables
-
-- the 'prénom' of your clients in the 'client_list' of a CRM called 'CRM_1'
-
-- the 'nom' of your users in the 'last_name' field of a 'users' in two PostgreSQL tables
-
-- the 'nom' of your client as a physical paper in a real library. Yeah, even if you've decided to print some of your user infos (because why not) instead of storing it numerically, Alias is able to reference them.
-
-- the IBAN of your client as a single image inside a S3 bucket (strange idea but no one is perfect) called 'iencli_bank_account_infos'
-
-You can reference this data types in the Alias system by sending a simple JSON object which look like that:
+Cet objet contient toutes les données personelles, listées par type de données, que votre entreprise conserve sur les utilisateurs qui consomment ses services et dont le DPO a connaissance.
 
 ```json
   {
     "items": [
       {
-        "dataTypeRef": "first_name",
+        "dataType": "prénom",
+        "dataTypeRef": "prenom-1",
+        "dataCategories": [
+          "Données d'identité",
+          "Données de permis de conduire",
+          "Données de facture"
+        ]
+      },
+      {
+        "dataType": "nom",
+        "dataTypeRef": "nom-1",
+        "dataCategories": [
+          "Données d'identité",
+          "Données de permis de conduire",
+          "Données de facture"
+        ]
+      },
+      {
+        "dataType": "IBAN",
+        "dataTypeRef": "IBAN-1",
+        "dataCategories": [
+          "Données d'identité bancaire"
+        ]
+      }
+    ]
+  }
+```
+
+Votre mission, si vous l'acceptez, consiste à trouver toutes les localisations dans vos systèmes pour chaque type de données et de renvoyer à Alias un objet JSON décrivant ces lieux de stockage.
+
+Imaginons que, pour les types de données au-dessus, vous enregistriez : 
+
+- le prénom de vos utilisateurs dans le champs ```first_name```d'une table ```users``` dans une base de donnée de type PostgreSQL.
+
+- le prénom de vos clients dans une liste appelée ```client_list``` dans le CRM appelée ```random_crm_1```.
+
+- le nom de vos utilisateurs dans le champs ```last_name```d'une table ```users``` dans une base de donnée de type PostgreSQL.
+
+- le nom de vos clients sur une feuille de papier (parce que pourquoi pas) rangée dans un dossier appelé "dossier clients", allée 22 de la "bibliothèque 1" de votre entreprise.
+
+- l'IBAN de vos clients sous forme d'image dans un bucket S3 (personne n'est parfait) appelé ```iencli_bank_account_infos```.
+
+Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias les localisations de vos types de données.
+
+```json
+  {
+    "items": [
+      {
+        "dataTypeRef": "prenom-1",
         "items": [
           {
             "location": "db_xz42/users/first_name", //the precision of the location is up to you
             "description": "prénom des utilisateurs du site exemple.com", 
             // optional, used to help your DPO to understand the content of the data
-            "storage_type": "db_field"
-          },
-          {
-            "location": "db_xz23/users/first_name",
-            "description": "réplication du prénom des utilisateurs exemple.com", 
-            "storage_type": "db_field"
+            "storage_type": "db_field",
+            "replications": ["db_xz23"]
           },
           {
             "location": "CRM_1/client_list_1",
@@ -47,16 +73,13 @@ You can reference this data types in the Alias system by sending a simple JSON o
         ]
       },
       {
-        "dataTypeRef": "name",
+        "dataTypeRef": "nom-1",
         "items": [
           {
             "location": "db_xz42/users/last_name",
             "description": "nom des utilisateurs du site exemple.com", 
-            "storage_type": "db_field"
-          },
-          {
-            "location": "db_xz23/users/last_name",
-            "storage_type": "db_field"
+            "storage_type": "db_field",
+            "replications": ["db_xz23"]
           },
           {
             "location": "bibliotheque_1/allee22/dossier_clients",
@@ -79,5 +102,5 @@ You can reference this data types in the Alias system by sending a simple JSON o
   }
 ```
 
-When you are done, you can take some rest and let your DPO take the lead for the next step.
+Une fois cet objet envoyé à Alias, vous pouvez vous féliciter, prendre un peu de repos et laisser votre DPO reprendre la main pour la prochaine étape.
 

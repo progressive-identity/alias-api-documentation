@@ -1,14 +1,22 @@
-# Entering processing records (DPO work)
+# Numériser les fiches de traitement (travail du DPO)
 
-The first action that is required from the DPO (ie. "Data protection officer"), is to firstly enter the processing records of the data controller into ALIAS.
+Le registre des fiches de traitement agrège les règles légales qui s'appliquent sur les données récoltées par une entreprise sur ses utilisateurs.
 
-To do so, the DPO is given a web hosted well designed UI (ie. "User interface) dedicated to that end. 
-
-The first step is then to login, using the credentials that CODE IS LAW sent to him after the subscription to ALIAS.
+La première action nécessaire pour mettre en route Alias est de saisir ces fiches sur l'interface DPO fournie par Alias. 
 
 ![Login](./assets/images/login-page.png)
 
-When the DPO is logged in, he can check and complete the informations related to its organization, and the ones of its providers and partners. To do so, the DPO can use the "Organizations" section.
+Après l'étape de connexion, le DPO est invité à mettre à jour les informations relatives aux organisations qu'il suit.
 
 ![Organization](./assets/images/organizations-page.png)
 
+Une fois ces informations remplies, le DPO peut alors saisir de nouvelles fiches de traitement dans Alias DPO UI en cliquant sur le bouton "+" dans la section "Cartographie".
+
+![Processing record Alias](./assets/images/processing-record-alias.png)
+
+Après avoir validé une fiche de traitement, une partie des informations qu'elle contient devient visible dans les sections "Les mesures de sécurités globales", "les outils de traitement", les "Transferts Hors-UE" et "Sous-traitance".
+
+![Security](./assets/images/security.png)
+![Data Processings](./assets/images/data-processings.png)
+
+Une fois les fiches de traitement renseignées dans le système, le DPO clique sur 'Générer les types de données' afin de créer un objet JSON contenant tous les types de données répertoriées dans les fiches de traitement.
