@@ -1,21 +1,21 @@
-# 5 steps to setup Alias
+# Quatre étapes pour mettre en route Alias
 
-Alias creates a bridge between the real data stored in your systems and the legal GDPR rules that apply to them. 
+Les données personnelles de vos utilisateurs sont précieuses. Pour vous et pour eux. C'est pourquoi leur utilisation est aujourd'hui encadrée par des textes légaux comme le RGPD. 
 
-To make this possible, the DPO(s) and developer(s) of your company only have to follow 5 configuration steps.
+Pour vous aider à utiliser au mieux les données que vous avez récoltées tout en étant certain de respecter les lois en vigueur, Alias transcrit l'application de la loi au niveau de vos données.
 
-1. The DPO digitizes the processing records in the Alias DPO UI. This processing records contain the GDPR rules that should apply to the data in your system. When he is done, Alias will automatically create a document containing all the different data types (first name, phone number, IBAN...) that you store about your users. 
+Ainsi, Alias peut ainsi vous notifier la nécessité de passer telle donnée en archivage légal ou vous informer de la possibilité d'utiliser ou non telle liste d'emails dans le cadre de vos campagnes marketings.  
 
-2. From this data types document, the developer identifies where they are stored (in buckets, in databases, in CRMs...). Then, he sends a JSON object to the Alias API containing the locations of this data types. 
+Pour permettre à la magie d'Alias d'opérer, les DPO(s) et les équipes IT doivent paramétrer la solution. 
 
-3. Data types are now bind with one or several locations. In the Alias DPO UI, the DPO can now bind each data type-locations couple with a specific purpose in a specific processing record. This step helps Alias to understand which rules (like the storage time) it should associate to each data store in your systems.
+Voici les quatre étapes à suivre:
 
-4. The DPO creates events in the Alias DPO UI. This events, like "a user has been created" or "a user has clicked on a newsletter", are used by Alias to update the context of data which are affected by this events. For example, Alias will be able to notify you when you will need to archive some data because its conservation date has been reached.
+1. Le DPO numérise les fiches de traitement dans l'application "Alias DPO UI". A l'issue de ce processus, Alias crée automatiquement un document listant les différents types de données (prénom, nom, numéro de téléphone, IBAN...) présentes dans vos systèmes et se rapportant à vos utilisateurs.
 
-5. For new data, the developer implements CRON Jobs in order to notify Alias of all the events that occured during the day for its users.
+2. A partir du document contenant les types de données, l'équipe IT identifie leurs lieux de stockage (databases, buckets, CRMs...) et les référence dans un objet JSON qu'elle transmet à l'API d'Alias.
 
-And... that's all, you are all set. You can now monitor all your data, be notified when you have to delete or archive some data and check if you have your user's authorization to do something with their data (such as sending marketing email).
+3. Dans l'Alias DPO UI, le DPO rédige les règles de durées de conservation s'appliquant sur chaque type de donnée (la donnée X située dans tel endroit du système doit être passée en archivage légal après Y temps) et définit le contenu des formulaires de consentement. A l'issue de ce processus, un document recensant tous les évènements à tracker est produit.
 
-If you have old data you need to tag with Alias, click here to know how you can do that.
+4. A partir du document des évènements, le développeur implémente des CRON Jobs qui envoient à Alias un objet JSON contenant les références des évènements s'étant produit, classés par utilisateur. 
 
-If you want to monitor your users' consents, click here to see how to do that. 
+Et... c'est tout ! Alias vous informe désormais automatiquement des actions à effectuer sur vos données en fonction des règles légales qui s'y appliquent. Vous pouvez également vérifier si vous avez légalement le droit d'effectuer une action sur telle donnée (par exemple envoyer un email marketting à un email en particulier).
