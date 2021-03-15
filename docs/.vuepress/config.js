@@ -36,14 +36,14 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Getting started',
+        text: 'Mise en place',
         link: '/getting-started/introduction',
       }
     ],
     sidebar: {
       '/getting-started/': [
         {
-          title: 'Getting started',
+          title: 'Mise en place',
           collapsable: false,
           children: [
             'introduction',

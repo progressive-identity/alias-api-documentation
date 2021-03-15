@@ -1,7 +1,7 @@
 {
   "name": "alias-api-documentation",
   "version": "0.0.1",
-  "description": "Tag your data, respect the GDRP",
+  "description": "Taguez vos données, respectez le RGPD",
   "main": "index.js",
   "authors": {
     "name": "Jules Prévost",
