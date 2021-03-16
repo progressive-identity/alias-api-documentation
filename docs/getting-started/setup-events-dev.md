@@ -69,9 +69,9 @@ Réponse d'Alias:
         "identityRef": 12,
         "items": [
           {
-            "locations": ["https://facture-bucket.com/users-4"],
-            "nextState": "archive",
-            "nextStateDate": "2026-04-22T06:00:00Z"
+            "dataTypes": ["prénom", "nom"],
+            "locations": ["https://facture-bucket.com"],
+            "triggerEventDates": ["2018-04-22T06:00:00Z", "2018-04-22T06:00:00Z"]
           }
         ]
       },

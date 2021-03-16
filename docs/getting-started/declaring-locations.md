@@ -67,7 +67,7 @@ Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias l
           },
           {
             "location": "CRM_1/client_list_1",
-            "description": "prénom des clients de la société Exemple", 
+            "description": "prénom des clients inscrits dans la base du CRM de la société Exemple", 
             "storage_type": "CRM"
           }
         ]
