@@ -1,32 +1,49 @@
-# Make your old data RGPD friendly
+# Rendre vos anciennes données RGPD compatibles
 
-You probably have lots of old data in your systems that needs to be tag with the GDPR rules. 
+Vos systèmes contiennent déjà très probablement de nombreuses données. Elles aussi nécessitent d'être suivies et taguées avec les règles RGPD qui s'y appliquent. 
 
-All you need is to send, for each user, an Alias a JSON object containing: 
+Tout ce que vous avez à faire, c'est envoyer à Alias un objet JSON contenant, pour chaque item:
 
-- an internal reference that will be used to identify this specific user in the Alias system (it can be the id of your users table instance representing a user, a reference you create...). The only requirement is that, when Alias will inform you that you need to do something about this ref, you must be able to find in your systems who is this user. 
+- une référence interne utilisée pour créer une identité chez Alias
 
-- the last time each users had interactions with your systems (it could be a connection to one of your app, a mail opening...).
+- la date de la dernière fois où votre utilisateur a déclenché chaque évènement répertorié par le DPO.
 
-Let's say that you have only two users in your systems and you decide to use the users table instance id to reference them. Here is how you'll do it: 
-
+Imaginons que vous avez deux utilisateurs dans votre système et que vous décidez de les références grâce à l'id d'instance de la table 'users'. Voilà comment vous devez les déclarer à Alias: 
 
 ```json
 {
   "items": [
     {
-      "identityRef": 1, 
-      "lastInteractionDate": "2020-04-22T06:00:00Z"
+      "identityRef": 1,
+      "items": [
+        {
+          "event": "user_created",
+          "date": "2020-04-22T06:00:00Z"
+        },
+        {
+          "event": "user_connected",
+          "date": "2020-05-22T06:00:00Z"
+        }
+      ]
     },
     {
       "identityRef": 2, 
-      "lastInteractionDate": "2014-01-22T06:00:00Z"
+      "items": [
+        {
+          "event": "user_created",
+          "date": "2020-04-22T06:00:00Z"
+        },
+        {
+          "event": "newsletter_opened",
+          "date": "2021-02-22T06:00:00Z"
+        }
+      ]
     }
   ]
 }
 ```
 
-Alias will send you back what you need to do with this user's info : 
+En réponse, Alias vous enverra les date de conservation calculées pour chaque instance de donnée:
 
 ```json
   {
@@ -70,10 +87,8 @@ Alias will send you back what you need to do with this user's info :
   }
 ```
 
-What does that mean ?
+Que signifie cet objet ?
 
-It means that for the user referenced as identity 1 in Alias, you will need to switch the first and last name in the users tables to legal archiving in 2025. For all infos concerning this user in the bucket, the archiving must be done in 2028.
+Pour l'utilisateur référencé sous l'identité 1 chez Alias, vous aurez besoin de passer le prénom et le nom situés dans les tables users en archivage légal en 2025. Les informations concernant cet utilisateur stockées dans le bucket devront, elles, être archivées en 2028.
 
-For the user 2, the lack of interactions since 2014 means that you need to switch all the mentioned infos in the legal archiving now. 
-
-Once that is done, you can activate the events /LINK VERS LA MISE EN PLACE DES EVENTS VIA CRON JOBS IN THE DEV PART/ in your system and start tracking what you need to do with your data based on the real events happening in your systems. 
+Pour l'utilisateur 2, toutes les données mentionnées dans l'objet doivent être passées en archivage légal dès maintenant.
