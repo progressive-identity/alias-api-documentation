@@ -1,21 +1,27 @@
 # Alias, c'est quoi ? 
 
-!!BROUILLON A ECRIRE!!
+Alias est un service qui vous permet de tirer un maximum de bénéfices des données personnelles que vous récoltez, tout en étant certain de respecter le RGPD. Il fonctionne grâce à une API à destination des développeurs et d'une interface UI pour les Data Protection Officers (DPO).
 
-Alias est une API pour les devs et une interface pour les DPO
-Utilité : assurer une cohérence et une véracité juridique et technique vis à vis du RGPD. 
-Gerer la conformité RGPD des données depuis les docs d'accountability jusqu'à l'implémentation technique pour les devs.
+## Pourquoi Alias ?
 
+Parce qu'on simplifie la vie des développeurs: 
 
-Avantages ? Pourquoi Alias ? 
+- en un call API, un développeurs ou chef de projet peut vérifier que l'implémentation d'une feature respecte les réglements sur les données personnelles en vigueur dans l'Union Européenne
 
-Elle permet d'assurer un lien entre DPO et équipes techniques.
-Vision à jour et à 360° des données persos au sein d'un système d'information. 
+- le recueil et la gestion des consentements devient aussi simple qu'intégrer l'iframe d'une vidéo Youtube sur un site
 
-Automatiser le contrôle du respect du RGPD, centraliser la gestion de tous les consentements en temps réel. 
+- Alias cartographie votre système d'information, ce qui vous permet de savoir en permanence où et comment sont stockées les données personnelles que vous utilisez
 
-Cartographier les données, où qu'elles soient stockées (DB, Bucket, document papier, SASS, etc.)
+Parce qu'on rend les DPO heureux:
 
-Permet de répondre aux requêtes de droits RGPD (accès, portabilité, suppression, modification, accès) en quelques minutes. 
+- on vous alerte dès que certaines données d'un utilisateur doivent changer de mode d'archivage
 
-Confidentialité: nous ne stockons ni n'accédons à aucune de vos données. 
+- votre registre de traitement reflète toujours la réalité des systèmes d'informations dont vous avez la charge
+
+- vous pouvez à tout moment émettre les preuves de bases légales qui vous autorise à exploiter telle ou telle donnée
+
+- les demandes de droits d'accès, de suppression, de portabilité, de modification ou d'accès ne demandent pas plus que quelques clics
+
+Et petit bonus confidentialité: 
+
+Nous ne stockons ni n'accédons à aucune de vos données.
