@@ -29,3 +29,18 @@ Pour chaque finalité, vous devez préciser:
 - "Base légale": Fondement juridique sur laquelle repose la licéité du traitement. Exemple: "Consentement de la personne concernée"
 
 - "Nom de la finalité". Exemple: "Informer les utilisateurs des actualités du site"
+
+
+## Sécurité
+
+Dans cet onglet, il vous faut définir toutes les mesures mises en place pour éviter toute violation de données.
+
+## Transferts hors UE
+
+- "Organisme": nom de l'organisme vers lequel les données sont transférées dans le cadre de ce traitement
+
+- Liste à cocher de toutes les garanties et exceptions s'appliquant sur ce transfert
+
+- "Preuve de base légale": citer les textes de loi faisant référence pour ce transfert.
+
+- "Preuve de l'engagement de conformité à la base légale"
