@@ -62,13 +62,13 @@ Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias l
             "location": "db_xz42/users/first_name", //the precision of the location is up to you
             "description": "prénom des utilisateurs du site exemple.com", 
             // optional, used to help your DPO to understand the content of the data
-            "storage_type": "db_field",
+            "storageType": "db_field",
             "replications": ["db_xz23"]
           },
           {
             "location": "CRM_1/client_list_1",
             "description": "prénom des clients inscrits dans la base du CRM de la société Exemple", 
-            "storage_type": "CRM"
+            "storageType": "CRM"
           }
         ]
       },
@@ -78,13 +78,13 @@ Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias l
           {
             "location": "db_xz42/users/last_name",
             "description": "nom des utilisateurs du site exemple.com", 
-            "storage_type": "db_field",
+            "storageType": "db_field",
             "replications": ["db_xz23"]
           },
           {
             "location": "bibliotheque_1/allee22/dossier_clients",
             "description": "nom des clients de la société Exemple", 
-            "storage_type": "physical_paper"
+            "storageType": "physical_paper"
           }
         ]
       },
@@ -94,7 +94,7 @@ Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias l
           {
             "location": "https://iencli_bank_account_infos.fr",
             "description": "PNGs contenant les informations bancaires de nos clients", 
-            "storage_type": "bucket"
+            "storageType": "bucket"
           }
         ]
       }
