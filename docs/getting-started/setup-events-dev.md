@@ -59,6 +59,7 @@ Réponse d'Alias:
         "identityRef": 22,
         "items": [
           {
+            "dataTypes": ["prénom", "nom"],
             "locations": ["db_xz42/users/first_name", "db_xz42/users/last_name"],
             "nextState": "archive",
             "nextStateDate": "2022-04-22T06:00:00Z"
@@ -71,7 +72,8 @@ Réponse d'Alias:
           {
             "dataTypes": ["prénom", "nom"],
             "locations": ["https://facture-bucket.com"],
-            "triggerEventDates": ["2018-04-22T06:00:00Z", "2018-04-22T06:00:00Z"]
+            "nextState": "archive",
+            "ArchiveAllBeforeDate": "2018-04-22T06:00:00Z"
           }
         ]
       },
