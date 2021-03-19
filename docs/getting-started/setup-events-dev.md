@@ -36,15 +36,34 @@ Cette ```identityRef``` peut être créée de toute pièce dans vos systèmes po
     "items": [
       {
         "identityRef": 22,
-        "eventsRef": ["login", "newsletter_opening"]
+        "events": [
+          {
+            "ref": "login",
+            "date": "2020-04-22T06:00:00Z"
+          },
+          {
+            "ref": "newsletter_opening",
+            "date": "2020-04-22T06:00:00Z"
+          }
+        ]
       },
       {
         "identityRef": 12,
-        "eventsRef": ["invoice_created"]
+        "events": [
+          {
+            "ref": "invoice_created",
+            "date": "2020-04-22T06:00:00Z"
+          }
+        ]
       },
       {
         "identityRef": 24,
-        "eventsRef": ["user_created"]
+        "events": [
+          {
+            "ref": "user_created",
+            "date": "2020-04-22T06:00:00Z"
+          }
+        ]
       }
     ]
   }

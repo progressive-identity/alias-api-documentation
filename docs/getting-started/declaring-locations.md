@@ -36,71 +36,76 @@ Cet objet contient toutes les données personelles, listées par type de donnée
   }
 ```
 
-Votre mission, si vous l'acceptez, consiste à trouver toutes les localisations dans vos systèmes pour chaque type de données et de renvoyer à Alias un objet JSON décrivant ces lieux de stockage.
+Votre mission, si vous l'acceptez, consiste à trouver toutes les localisations dans vos systèmes pour chaque type de données.
 
-Imaginons que, pour les types de données au-dessus, vous enregistriez : 
+Cette mission s'accomplit en deux étapes.
 
-- le prénom de vos utilisateurs dans le champs ```first_name```d'une table ```users``` dans une base de donnée de type PostgreSQL.
-
-- le prénom de vos clients dans une liste appelée ```client_list``` dans le CRM appelée ```random_crm_1```.
-
-- le nom de vos utilisateurs dans le champs ```last_name```d'une table ```users``` dans une base de donnée de type PostgreSQL.
-
-- le nom de vos clients sur une feuille de papier (parce que pourquoi pas) rangée dans un dossier appelé "dossier clients", allée 22 de la "bibliothèque 1" de votre entreprise.
-
-- l'IBAN de vos clients sous forme d'image dans un bucket S3 (personne n'est parfait) appelé ```iencli_bank_account_infos```.
-
-Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias les localisations de vos types de données.
+1. Déclarer vos espaces de stockage grâce à un objet JSON ou via note interface UI:
 
 ```json
   {
     "items": [
       {
-        "dataTypeRef": "prenom-1",
-        "items": [
-          {
-            "location": "db_xz42/users/first_name", //the precision of the location is up to you
-            "description": "prénom des utilisateurs du site exemple.com", 
-            // optional, used to help your DPO to understand the content of the data
-            "storageType": "db_field",
-            "replications": ["db_xz23"]
-          },
-          {
-            "location": "CRM_1/client_list_1",
-            "description": "prénom des clients inscrits dans la base du CRM de la société Exemple", 
-            "storageType": "CRM"
-          }
-        ]
+        "dataSupport": "db_xz42",
+        "storageType": "db",
+        "replications": ["db_xz23"]
       },
       {
-        "dataTypeRef": "nom-1",
-        "items": [
-          {
-            "location": "db_xz42/users/last_name",
-            "description": "nom des utilisateurs du site exemple.com", 
-            "storageType": "db_field",
-            "replications": ["db_xz23"]
-          },
-          {
-            "location": "bibliotheque_1/allee22/dossier_clients",
-            "description": "nom des clients de la société Exemple", 
-            "storageType": "physical_paper"
-          }
-        ]
+        "dataSupport": "https://iencli_bank_account_infos.fr",
+        "storageType": "bucket",
+        "replications": null
       },
       {
-        "dataTypeRef": "IBAN",
-        "items": [
-          {
-            "location": "https://iencli_bank_account_infos.fr",
-            "description": "PNGs contenant les informations bancaires de nos clients", 
-            "storageType": "bucket"
-          }
-        ]
+        "dataSupport": "random_crm_1",
+        "storageType": "CRM",
+        "replications": null
+      },
+      {
+        "dataSupport": "bibliotheque_1",
+        "storageType": "library",
+        "replications": null
       }
     ]
   }
 ```
 
-Une fois cet objet envoyé à Alias, vous pouvez vous féliciter, prendre un peu de repos et laisser votre DPO reprendre la main pour la prochaine étape.
+2. Déclarer pour le type de donnée associé à chaque adresse dans chaque support de donnée.
+
+Imaginons que vous enregistriez le prénom de vos utilisateurs dans le champs ```first_name```d'une table ```users``` dans vos base de donnée ```db_xz42``` et ```db_xz23```.
+
+<!-- - le prénom de vos clients dans une liste appelée ```client_list``` dans le CRM appelée ```random_crm_1```. -->
+
+- le nom de vos utilisateurs dans le champs ```last_name```d'une table ```users``` dans la base de donnée ```db_xz42``` et ```db_xz23```.
+
+<!-- - le nom de vos clients sur une feuille de papier (parce que pourquoi pas) rangée dans un dossier appelé "dossier clients", allée 22 de la "bibliothèque 1" de votre entreprise.
+
+- l'IBAN de vos clients sous forme d'image dans un bucket S3 (personne n'est parfait) appelé ```iencli_bank_account_infos```. -->
+
+Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias les localisations de votre type de donnée "prénom" dans le support de donnée ```db_xz42```. Automatiquement, Alias reliera les types de données ci-dessous aux mêmes addresses dans la base de donnée répliquée ```db_xz23```.
+
+Path : /data-support/db_xz42/data-types
+POST
+
+```json
+  {
+    "items": [
+      {
+        "address": {
+          "name": "users/first_name",
+          "description": "prénom des utilisateurs du site exemple.com"
+        },
+        "dataTypeRef": "prénom-1"
+      },
+      {
+        "address": {
+          "name": "users/last_name",
+          "description": "nom des utilisateurs du site exemple.com"
+        },
+        "dataTypeRef": "nom-1"
+      }
+    ]
+  }
+```
+
+Une fois ces objets envoyés à Alias, vous pouvez vous féliciter, prendre un peu de repos et laisser votre DPO reprendre la main pour la prochaine étape.
 
