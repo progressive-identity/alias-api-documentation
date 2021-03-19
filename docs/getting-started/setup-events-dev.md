@@ -7,23 +7,30 @@ Consultez votre boite mail, vous venez de recevoir un message de la part de votr
     "items": [
       {
         "description": "Sign up d'un nouvel utilisateur sur notre site exemple.com",
-        "ref": "user_created"
+        "ref": "user_created",
+        "instance_creator": true
       },
       {
         "description": "Login d'un nouvel utilisateur sur notre site exemple.com",
-        "ref": "login"
+        "ref": "login",
+        "instance_creator": false
       },
       {
         "description": "Ouverture d'une newsletter du site exemple.com par un abonné à cette newsletter",
-        "ref": "newsletter_opening"
+        "ref": "newsletter_opening",
+        "instance_creator": false
       },
       {
         "description": "Création d'une facture suite à un achat sur le site exemple.com",
-        "ref": "invoice_created"
+        "ref": "invoice_created",
+        "instance_creator": true
       }
     ]
   }
 ```
+
+La clé ```instance_creator``` signifie que vous pouvez gérer différement la notification qu'un de ces évènements s'est produit.
+Dans le cas où un évènement est "créateur d'instance", chaque occurence de cet évènement dans vos systèmes devra être notifié à Alias (ex: si une facture est créé dans vos systèmes, Alias va devoir associer une durée de conservation à chacune de ses factures.). Dans le cas inverse, seule l'occurence la plus récente de l'évènement doit être notifiée à Alias (ex: si un utilisateur se connecte implique une mise à jour des durées de conservation de plusieurs de ses données mais n'implique pas la création de nouvelles données personnelles à traquer par Alias).
 
 Il vous faut maintenant intégrer ces évènements dans vos systèmes afin d'être en mesure de prévenir Alias lorsqu'ils surviennent.
 
