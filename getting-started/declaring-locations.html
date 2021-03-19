@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <link rel="preload" href="/alias-api-documentation/assets/css/0.styles.505ca651.css" as="style"><link rel="preload" href="/alias-api-documentation/assets/js/app.ff754be8.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/2.7b8a4189.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/16.f9423d43.js" as="script"><link rel="prefetch" href="/alias-api-documentation/assets/js/10.843725f2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/11.d9855d2d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/12.f9ceaf31.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/13.5d5122b8.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/14.ce3199b2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/15.3df3a12d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/17.e4bb6631.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/18.364048eb.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/19.e5c55afb.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/20.ad2db5c4.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/3.b2c36ace.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/4.2540eb76.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/5.d4477408.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/6.da94c2c2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/7.930cb612.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/8.92ce57d8.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/9.76abd819.js">
+    <link rel="preload" href="/alias-api-documentation/assets/css/0.styles.505ca651.css" as="style"><link rel="preload" href="/alias-api-documentation/assets/js/app.325d3676.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/2.7b8a4189.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/16.c1a31e91.js" as="script"><link rel="prefetch" href="/alias-api-documentation/assets/js/10.843725f2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/11.d9855d2d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/12.79712ca6.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/13.38409b13.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/14.ce3199b2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/15.3df3a12d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/17.e4bb6631.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/18.ee55d1e0.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/19.e5c55afb.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/20.ad2db5c4.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/3.b2c36ace.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/4.2540eb76.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/5.d4477408.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/6.da94c2c2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/7.930cb612.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/8.92ce57d8.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/9.76abd819.js">
     <link rel="stylesheet" href="/alias-api-documentation/assets/css/0.styles.505ca651.css">
   </head>
   <body>
@@ -48,54 +48,50 @@
       <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
-</code></pre></div><p>Votre mission, si vous l'acceptez, consiste à trouver toutes les localisations dans vos systèmes pour chaque type de données et de renvoyer à Alias un objet JSON décrivant ces lieux de stockage.</p> <p>Imaginons que, pour les types de données au-dessus, vous enregistriez :</p> <ul><li><p>le prénom de vos utilisateurs dans le champs <code>first_name</code>d'une table <code>users</code> dans une base de donnée de type PostgreSQL.</p></li> <li><p>le prénom de vos clients dans une liste appelée <code>client_list</code> dans le CRM appelée <code>random_crm_1</code>.</p></li> <li><p>le nom de vos utilisateurs dans le champs <code>last_name</code>d'une table <code>users</code> dans une base de donnée de type PostgreSQL.</p></li> <li><p>le nom de vos clients sur une feuille de papier (parce que pourquoi pas) rangée dans un dossier appelé &quot;dossier clients&quot;, allée 22 de la &quot;bibliothèque 1&quot; de votre entreprise.</p></li> <li><p>l'IBAN de vos clients sous forme d'image dans un bucket S3 (personne n'est parfait) appelé <code>iencli_bank_account_infos</code>.</p></li></ul> <p>Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias les localisations de vos types de données.</p> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token punctuation">{</span>
+</code></pre></div><p>Votre mission, si vous l'acceptez, consiste à trouver toutes les localisations dans vos systèmes pour chaque type de données.</p> <p>Cette mission s'accomplit en deux étapes.</p> <ol><li>Déclarer vos espaces de stockage grâce à un objet JSON ou via note interface UI:</li></ol> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token punctuation">{</span>
     <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
       <span class="token punctuation">{</span>
-        <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prenom-1&quot;</span><span class="token punctuation">,</span>
-        <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-          <span class="token punctuation">{</span>
-            <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_xz42/users/first_name&quot;</span><span class="token punctuation">,</span> <span class="token comment">//the precision of the location is up to you</span>
-            <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom des utilisateurs du site exemple.com&quot;</span><span class="token punctuation">,</span> 
-            <span class="token comment">// optional, used to help your DPO to understand the content of the data</span>
-            <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_field&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;db_xz23&quot;</span><span class="token punctuation">]</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token punctuation">{</span>
-            <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;CRM_1/client_list_1&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom des clients inscrits dans la base du CRM de la société Exemple&quot;</span><span class="token punctuation">,</span> 
-            <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;CRM&quot;</span>
-          <span class="token punctuation">}</span>
-        <span class="token punctuation">]</span>
+        <span class="token property">&quot;dataSupport&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_xz42&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;db_xz23&quot;</span><span class="token punctuation">]</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">{</span>
-        <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom-1&quot;</span><span class="token punctuation">,</span>
-        <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-          <span class="token punctuation">{</span>
-            <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_xz42/users/last_name&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom des utilisateurs du site exemple.com&quot;</span><span class="token punctuation">,</span> 
-            <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_field&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;db_xz23&quot;</span><span class="token punctuation">]</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token punctuation">{</span>
-            <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bibliotheque_1/allee22/dossier_clients&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom des clients de la société Exemple&quot;</span><span class="token punctuation">,</span> 
-            <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;physical_paper&quot;</span>
-          <span class="token punctuation">}</span>
-        <span class="token punctuation">]</span>
+        <span class="token property">&quot;dataSupport&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://iencli_bank_account_infos.fr&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bucket&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">{</span>
-        <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;IBAN&quot;</span><span class="token punctuation">,</span>
-        <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-          <span class="token punctuation">{</span>
-            <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://iencli_bank_account_infos.fr&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;PNGs contenant les informations bancaires de nos clients&quot;</span><span class="token punctuation">,</span> 
-            <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bucket&quot;</span>
-          <span class="token punctuation">}</span>
-        <span class="token punctuation">]</span>
+        <span class="token property">&quot;dataSupport&quot;</span><span class="token operator">:</span> <span class="token string">&quot;random_crm_1&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;CRM&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;dataSupport&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bibliotheque_1&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;storageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;library&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
-</code></pre></div><p>Une fois cet objet envoyé à Alias, vous pouvez vous féliciter, prendre un peu de repos et laisser votre DPO reprendre la main pour la prochaine étape.</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><ol start="2"><li>Déclarer pour le type de donnée associé à chaque adresse dans chaque support de donnée.</li></ol> <p>Imaginons que vous enregistriez le prénom de vos utilisateurs dans le champs <code>first_name</code>d'une table <code>users</code> dans vos base de donnée <code>db_xz42</code> et <code>db_xz23</code>.</p> <ul><li>le nom de vos utilisateurs dans le champs <code>last_name</code>d'une table <code>users</code> dans la base de donnée <code>db_xz42</code> et <code>db_xz23</code>.</li></ul> <p>Voici à quoi devrait ressembler l'objet JSON permettant de déclarer à Alias les localisations de votre type de donnée &quot;prénom&quot; dans le support de donnée <code>db_xz42</code>. Automatiquement, Alias reliera les types de données ci-dessous aux mêmes addresses dans la base de donnée répliquée <code>db_xz23</code>.</p> <p>Path : /data-support/db_xz42/data-types
+POST</p> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token punctuation">{</span>
+    <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;users/first_name&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom des utilisateurs du site exemple.com&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom-1&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;address&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;users/last_name&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom des utilisateurs du site exemple.com&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom-1&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>Une fois ces objets envoyés à Alias, vous pouvez vous féliciter, prendre un peu de repos et laisser votre DPO reprendre la main pour la prochaine étape.</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/alias-api-documentation/getting-started/entering-processing-records.html" class="prev">
         Numériser les fiches de traitement (travail du DPO)
@@ -104,6 +100,6 @@
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/alias-api-documentation/assets/js/app.ff754be8.js" defer></script><script src="/alias-api-documentation/assets/js/2.7b8a4189.js" defer></script><script src="/alias-api-documentation/assets/js/16.f9423d43.js" defer></script>
+    <script src="/alias-api-documentation/assets/js/app.325d3676.js" defer></script><script src="/alias-api-documentation/assets/js/2.7b8a4189.js" defer></script><script src="/alias-api-documentation/assets/js/16.c1a31e91.js" defer></script>
   </body>
 </html>
