@@ -29,8 +29,9 @@ Consultez votre boite mail, vous venez de recevoir un message de la part de votr
   }
 ```
 
-La clé ```instance_creator``` signifie que vous pouvez gérer différement la notification qu'un de ces évènements s'est produit.
-Dans le cas où un évènement est "créateur d'instance", chaque occurence de cet évènement dans vos systèmes devra être notifié à Alias (ex: si une facture est créé dans vos systèmes, Alias va devoir associer une durée de conservation à chacune de ses factures.). Dans le cas inverse, seule l'occurence la plus récente de l'évènement doit être notifiée à Alias (ex: si un utilisateur se connecte implique une mise à jour des durées de conservation de plusieurs de ses données mais n'implique pas la création de nouvelles données personnelles à traquer par Alias).
+La clé ```instance_creator``` signifie que vous pouvez gérer différement la notification de cet évènement à Alias en fonction de sa valeur.
+
+Dans le cas où un évènement est "créateur d'instance", chaque occurence de cet évènement dans vos systèmes devra être notifié à Alias (ex: si plusieurs factures sont créées dans vos systèmes, Alias va devoir associer une durée de conservation à chacune des données de chacune de ces factures.). Dans le cas inverse, seule l'occurence la plus récente de l'évènement peut être notifiée à Alias (ex: si un utilisateur se connecte, cela implique une mise à jour des durées de conservation de plusieurs de ses données mais n'implique pas la création de nouvelles données personnelles à traquer par Alias).
 
 Il vous faut maintenant intégrer ces évènements dans vos systèmes afin d'être en mesure de prévenir Alias lorsqu'ils surviennent.
 
