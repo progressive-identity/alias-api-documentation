@@ -10,11 +10,11 @@ Pour permettre à la magie d'Alias d'opérer, les DPO(s) et les équipes IT doiv
 
 Voici les quatre étapes à suivre:
 
-1. Le DPO numérise les fiches de traitement dans l'application "Alias DPO UI". A l'issue de ce processus, Alias crée automatiquement un document listant les différents types de données (prénom, nom, numéro de téléphone, IBAN...) présentes dans vos systèmes et se rapportant à vos utilisateurs.
+1. Le DPO numérise les fiches de traitement dans l'application "Alias DPO UI". A l'issue de ce processus, Alias crée automatiquement un document listant les différents types de données (prénom, nom, numéro de téléphone...) présentes dans vos systèmes et se rapportant à vos utilisateurs.
 
-2. A partir du document contenant les types de données, l'équipe IT identifie leurs lieux de stockage (databases, buckets, CRMs...) et les références dans un objet JSON qu'elle transmet à l'API d'Alias.
+2. A partir du document contenant les types de données, l'équipe IT identifie leurs lieux de stockage (databases, buckets, CRMs...).
 
-3. Dans l'Alias DPO UI, le DPO rédige les règles de durées de conservation s'appliquant sur chaque type de donnée (la donnée X située dans tel endroit du système doit être passée en archivage légal après Y temps) et définit le contenu des formulaires de consentement. A l'issue de ce processus, un document recensant tous les évènements à tracker est produit.
+3. Dans l'Alias DPO UI, le DPO rédige les règles de durées de conservation s'appliquant sur chaque type de donnée (la donnée X située dans tel endroit du système doit être passée en archivage légal après Y temps ou suite à l'évènement Z). A l'issue de ce processus, un document recensant tous les évènements à tracker est produit.
 
 4. A partir du document des évènements, le développeur implémente des CRON Jobs qui envoient à Alias un objet JSON contenant les références des évènements s'étant produit, classés par utilisateur. 
 
