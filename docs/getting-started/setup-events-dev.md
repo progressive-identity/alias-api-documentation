@@ -39,7 +39,7 @@ Dans le cas où un évènement est "créateur d'instance", chaque occurence de c
 
 Après avoir lu le document des évènements, il vous faut maintenant surveiller leur survenue dans vos systèmes afin d'en prévenir Alias.
 
-La solution la plus simple est de mettre en place des CRON Jobs capables de repérer les utilisateurs ayant déclenché un ou plusieurs des évènements référencés par le DPO. Dans le cadre de la création d'un nouvel utilisateur, l'```identityRef``` correspond à un identifiant interne à vos systèmes qui vous permettra de retrouver cet utilisateur avec certitude si Alias vous en fait la demande (dans le cadre d'une demande de droit d'accès par exemple).
+La solution la plus simple est de mettre en place des CRON Jobs capables de repérer les évènements  référencés par le DPO et déclenchés par vos utilisateurs. Dans le cadre de la création d'un nouvel utilisateur, l'```identityRef``` correspond à un identifiant interne à vos systèmes qui vous permettra de retrouver cet utilisateur avec certitude si Alias vous en fait la demande (dans le cadre d'une demande de droit d'accès par exemple).
 
 Cette ```identityRef``` peut être créée de toute pièce dans vos systèmes pour Alias, ou bien être, par exemple, un id d'instance d'une table "users". 
 
