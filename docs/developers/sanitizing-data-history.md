@@ -2,13 +2,15 @@
 
 Vos systèmes contiennent déjà très probablement de nombreuses données. Elles aussi nécessitent d'être suivies et taguées avec les règles RGPD qui s'y appliquent. 
 
-Tout ce que vous avez à faire, c'est envoyer à Alias un objet JSON contenant, pour chaque item:
+Tout ce que vous avez à faire, c'est envoyer à Alias un objet JSON contenant, pour chaque utilisateur:
 
 - une référence interne utilisée pour créer une identité chez Alias
 
-- la date de la dernière fois où votre utilisateur a déclenché chaque évènement répertorié par le DPO.
+- pour chaque évènement "non créateur d'instance", la date de la dernière fois qu'il a été déclenché
 
-Imaginons que vous avez deux utilisateurs dans votre système et que vous décidez de les références grâce à l'id d'instance de la table 'users'. Voilà comment vous devez les déclarer à Alias: 
+- pour chaque évènement "créateur d'instance", toutes les fois où cet évènement a été déclenché dans vos systèmes
+
+Exemple: 
 
 ```json
   {
