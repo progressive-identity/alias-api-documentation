@@ -48,7 +48,7 @@ Cette ```identityRef``` peut être créée de toute pièce dans vos systèmes po
           {
             "ref": "login",
             "date": "2020-04-22T06:00:00Z"
-          },
+          }, // vous n'êtes pas obligé de signaler la survenue de cet évènement à chaque fois qu'il se produit. Simplement la dernière occurence connue à la date de l'envoi de cet objet à Alias.
           {
             "ref": "newsletter_opening",
             "date": "2020-04-22T06:00:00Z"
@@ -61,7 +61,11 @@ Cette ```identityRef``` peut être créée de toute pièce dans vos systèmes po
           {
             "ref": "invoice_created",
             "date": "2020-04-22T06:00:00Z"
-          }
+          },
+          {
+            "ref": "invoice_created",
+            "date": "2020-04-22T06:10:00Z"
+          } // vous devez signaler la survenu de cet évènement autant de fois qu'il s'est produit
         ]
       },
       {
