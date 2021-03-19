@@ -15,26 +15,26 @@ Imaginons que vous avez deux utilisateurs dans votre système et que vous décid
   "items": [
     {
       "identityRef": 1,
-      "items": [
+      "events": [
         {
-          "event": "user_created",
+          "name": "user_created",
           "date": "2020-04-22T06:00:00Z"
         },
         {
-          "event": "user_connected",
+          "name": "user_connected",
           "date": "2020-05-22T06:00:00Z"
         }
       ]
     },
     {
       "identityRef": 2, 
-      "items": [
+      "events": [
         {
-          "event": "user_created",
+          "name": "user_created",
           "date": "2020-04-22T06:00:00Z"
         },
         {
-          "event": "newsletter_opened",
+          "name": "newsletter_opened",
           "date": "2021-02-22T06:00:00Z"
         }
       ]

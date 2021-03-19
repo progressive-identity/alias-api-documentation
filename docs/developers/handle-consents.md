@@ -12,8 +12,13 @@ Si votre DPO a paramétré un évènement ayant pour référence ```revoke_conse
   {
     "items": [
       {
-        "identityRef": 4,
-        "eventsRef": ["revoke_consent_1"]
+        "identityRef": 1,
+        "events": [
+          {
+            "name": "revoke_consent_1",
+            "date": "2020-04-22T06:00:00Z"
+          }
+        ]
       }
     ]
   }
