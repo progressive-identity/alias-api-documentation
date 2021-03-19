@@ -100,7 +100,7 @@ Réponse d'Alias:
               {
                 "name": "db_xz42/users/first_name",
                 "replications": ["db_xz23"],
-                "dataTypeRefs": "prénom-1",
+                "dataTypeRef": "prénom-1",
                 "eventDate": "2020-04-22T06:00:00Z"
               },
               {
