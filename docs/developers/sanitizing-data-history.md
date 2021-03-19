@@ -11,84 +11,139 @@ Tout ce que vous avez à faire, c'est envoyer à Alias un objet JSON contenant, 
 Imaginons que vous avez deux utilisateurs dans votre système et que vous décidez de les références grâce à l'id d'instance de la table 'users'. Voilà comment vous devez les déclarer à Alias: 
 
 ```json
-{
-  "items": [
-    {
-      "identityRef": 1,
-      "events": [
-        {
-          "name": "user_created",
-          "date": "2020-04-22T06:00:00Z"
-        },
-        {
-          "name": "user_connected",
-          "date": "2020-05-22T06:00:00Z"
-        }
-      ]
-    },
-    {
-      "identityRef": 2, 
-      "events": [
-        {
-          "name": "user_created",
-          "date": "2020-04-22T06:00:00Z"
-        },
-        {
-          "name": "newsletter_opened",
-          "date": "2021-02-22T06:00:00Z"
-        }
-      ]
-    }
-  ]
-}
-```
-
-En réponse, Alias vous enverra les date de conservation calculées pour chaque instance de donnée:
-
-```json
   {
     "items": [
       {
-        "identityRef": 1,
-        "items": [
+        "identityRef": 22,
+        "events": [
           {
-            "locations": [
-              "db_xz42/users/first_name",
-              "db_xz23/users/first_name",
-              "db_xz42/users/last_name",
-              "db_xz23/users/last_name"
-            ],
-            "nextState": "legal",
-            "nextStateDate": "2025-04-22T06:00:00Z"
-          },
+            "ref": "login", // cet évènement n'est pas "créateur d'instance", vous n'êtes donc pas obligé de signaler sa survenue à chaque fois qu'il se produit. Simplement la dernière occurence.
+            "date": "2020-04-22T06:00:00Z" //date de déclenchement de cet évènement
+          }, 
           {
-            "locations": ["https://iencli_bank_account_infos.fr"],
-            "nextState": "legal",
-            "nextStateDate": "2028-04-22T06:00:00Z"
-          },
+            "ref": "newsletter_opening",
+            "date": "2020-04-22T06:00:00Z"
+          }
         ]
       },
       {
-        "identityRef": 2,
-        "items": [
+        "identityRef": 12,
+        "events": [
           {
-            "locations": ["users/first_name", "users/last_name"],
-            "nextState": "legal",
-            "nextStateDate": "now"
+            "ref": "invoice_created",
+            "date": "2020-04-22T06:00:00Z"
           },
           {
-            "locations": ["https://iencli_bank_account_infos.fr"],
-            "nextState": "legal",
-            "nextStateDate": "now"
-          },
+            "ref": "invoice_created", // cet évènement est "créateur d'instance", vous devez le signaler à Alias autant de fois qu'il s'est produit
+            "date": "2020-04-22T06:10:00Z"
+          }
+        ]
+      },
+      {
+        "identityRef": 24,
+        "events": [
+          {
+            "ref": "user_created",
+            "date": "2020-04-22T06:00:00Z"
+          }
         ]
       }
     ]
   }
 ```
 
-Que signifie cet objet ?
+En réponse, Alias vous enverra les durées de conservation calculées pour chaque instance de donnée:
 
-Pour l'utilisateur référencé sous l'identité 1 chez Alias, vous aurez besoin de passer le prénom et le nom situés dans les tables users en archivage légal en 2025. Les informations concernant cet utilisateur stockées dans le bucket devront, elles, être archivées en 2028.
-
-Pour l'utilisateur 2, toutes les données mentionnées dans l'objet doivent être passées en archivage légal dès maintenant.
+```json
+  {
+    "items": [
+      { 
+        "identityRef": 22,
+        "durations": [
+          {
+            "nextState": "archive",
+            "nextStateDate": "2022-04-22T06:00:00Z",
+            "locations": [
+              {
+                "name": "db_xz42/users/first_name",
+                "replications": ["db_xz23"],
+                "dataTypeRef": "prénom-1",
+                "eventDate": "2020-04-22T06:00:00Z"
+              },
+              {
+                "name": "db_xz42/users/last_name",
+                "replications": ["db_xz23"],
+                "dataTypeRef": "nom-1",
+                "eventDate": "2020-04-22T06:00:00Z"
+              }
+            ]
+          }
+        ]
+      },
+      { 
+        "identityRef": 12,
+        "durations": [
+          {
+            "nextState": "archive",
+            "nextStateDate": "2022-04-22T06:00:00Z",
+            "locations": [
+              {
+                "name": "https://facture-bucket.com",
+                "dataTypeRef": "prénom-facture",
+                "replications": null,
+                "eventDate": "2020-04-22T06:00:00Z"
+              },
+              {
+                "name": "https://facture-bucket.com",
+                "dataTypeRef": "nom-facture",
+                "replications": null,
+                "eventDate": "2020-04-22T06:00:00Z"
+              }
+            ]
+          },
+          {
+            "nextState": "archive",
+            "nextStateDate": "2022-04-22T06:10:00Z",
+            "locations": [
+              {
+                "name": "https://facture-bucket.com",
+                "dataTypeRef": "prénom-facture",
+                "replications": null,
+                "eventDate": "2020-04-22T06:10:00Z"
+              },
+              {
+                "name": "https://facture-bucket.com",
+                "dataTypeRef": "nom-facture",
+                "replications": null,
+                "eventDate": "2020-04-22T06:10:00Z"
+              }
+            ]
+          }
+        ]  
+      },
+      { 
+        "identityRef": 22,
+        "durations": [
+          {
+            "nextState": "archive",
+            "nextStateDate": "2022-04-22T06:00:00Z",
+            "locations": [
+              {
+                "name": "db_xz42/users/first_name",
+                "replications": ["db_xz23"],
+                "dataTypeRefs": "prénom-1",
+                "eventDate": "2020-04-22T06:00:00Z"
+              },
+              {
+                "name": "db_xz42/users/last_name",
+                "replications": ["db_xz23"],
+                "dataTypeRef": "nom-1",
+                "eventDate": "2020-04-22T06:00:00Z"
+              }
+            ]
+          }
+        ]
+      },
+    ]
+  }
+```
