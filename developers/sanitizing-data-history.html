@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <link rel="preload" href="/alias-api-documentation/assets/css/0.styles.505ca651.css" as="style"><link rel="preload" href="/alias-api-documentation/assets/js/app.6c19113c.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/2.7b8a4189.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/13.38409b13.js" as="script"><link rel="prefetch" href="/alias-api-documentation/assets/js/10.843725f2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/11.d9855d2d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/12.79712ca6.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/14.ce3199b2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/15.3df3a12d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/16.c1a31e91.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/17.5f57202c.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/18.57706816.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/19.e8372623.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/20.ad2db5c4.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/3.b2c36ace.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/4.2540eb76.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/5.d4477408.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/6.da94c2c2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/7.930cb612.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/8.92ce57d8.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/9.76abd819.js">
+    <link rel="preload" href="/alias-api-documentation/assets/css/0.styles.505ca651.css" as="style"><link rel="preload" href="/alias-api-documentation/assets/js/app.1b308649.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/2.7b8a4189.js" as="script"><link rel="preload" href="/alias-api-documentation/assets/js/13.dd3a3b76.js" as="script"><link rel="prefetch" href="/alias-api-documentation/assets/js/10.843725f2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/11.d9855d2d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/12.79712ca6.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/14.ce3199b2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/15.3df3a12d.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/16.c1a31e91.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/17.5f57202c.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/18.57706816.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/19.e8372623.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/20.ad2db5c4.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/3.b2c36ace.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/4.2540eb76.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/5.d4477408.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/6.da94c2c2.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/7.930cb612.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/8.92ce57d8.js"><link rel="prefetch" href="/alias-api-documentation/assets/js/9.76abd819.js">
     <link rel="stylesheet" href="/alias-api-documentation/assets/css/0.styles.505ca651.css">
   </head>
   <body>
@@ -19,80 +19,141 @@
   Mise en place
 </a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/alias-api-documentation/getting-started/introduction.html" class="nav-link">
   Mise en place
-</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Alias for developers</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/alias-api-documentation/developers/sanitizing-data-history.html" aria-current="page" class="active sidebar-link">Rendre vos anciennes données RGPD compatibles</a></li><li><a href="/alias-api-documentation/developers/handle-consents.html" class="sidebar-link">Gérer les consentements</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="rendre-vos-anciennes-donnees-rgpd-compatibles"><a href="#rendre-vos-anciennes-donnees-rgpd-compatibles" class="header-anchor">#</a> Rendre vos anciennes données RGPD compatibles</h1> <p>Vos systèmes contiennent déjà très probablement de nombreuses données. Elles aussi nécessitent d'être suivies et taguées avec les règles RGPD qui s'y appliquent.</p> <p>Tout ce que vous avez à faire, c'est envoyer à Alias un objet JSON contenant, pour chaque item:</p> <ul><li><p>une référence interne utilisée pour créer une identité chez Alias</p></li> <li><p>la date de la dernière fois où votre utilisateur a déclenché chaque évènement répertorié par le DPO.</p></li></ul> <p>Imaginons que vous avez deux utilisateurs dans votre système et que vous décidez de les références grâce à l'id d'instance de la table 'users'. Voilà comment vous devez les déclarer à Alias:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
-  <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-      <span class="token property">&quot;events&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;user_created&quot;</span><span class="token punctuation">,</span>
-          <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;user_connected&quot;</span><span class="token punctuation">,</span>
-          <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-05-22T06:00:00Z&quot;</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> 
-      <span class="token property">&quot;events&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;user_created&quot;</span><span class="token punctuation">,</span>
-          <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;newsletter_opened&quot;</span><span class="token punctuation">,</span>
-          <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2021-02-22T06:00:00Z&quot;</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-</code></pre></div><p>En réponse, Alias vous enverra les date de conservation calculées pour chaque instance de donnée:</p> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token punctuation">{</span>
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Alias for developers</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/alias-api-documentation/developers/sanitizing-data-history.html" aria-current="page" class="active sidebar-link">Rendre vos anciennes données RGPD compatibles</a></li><li><a href="/alias-api-documentation/developers/handle-consents.html" class="sidebar-link">Gérer les consentements</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="rendre-vos-anciennes-donnees-rgpd-compatibles"><a href="#rendre-vos-anciennes-donnees-rgpd-compatibles" class="header-anchor">#</a> Rendre vos anciennes données RGPD compatibles</h1> <p>Vos systèmes contiennent déjà très probablement de nombreuses données. Elles aussi nécessitent d'être suivies et taguées avec les règles RGPD qui s'y appliquent.</p> <p>Tout ce que vous avez à faire, c'est envoyer à Alias un objet JSON contenant, pour chaque utilisateur:</p> <ul><li><p>une référence interne utilisée pour créer une identité chez Alias</p></li> <li><p>pour chaque évènement &quot;non créateur d'instance&quot;, la date de la dernière fois qu'il a été déclenché</p></li> <li><p>pour chaque évènement &quot;créateur d'instance&quot;, toutes les fois où cet évènement a été déclenché dans vos systèmes</p></li></ul> <p>Exemple:</p> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token punctuation">{</span>
     <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
       <span class="token punctuation">{</span>
-        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-        <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;events&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
           <span class="token punctuation">{</span>
-            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-              <span class="token string">&quot;db_xz42/users/first_name&quot;</span><span class="token punctuation">,</span>
-              <span class="token string">&quot;db_xz23/users/first_name&quot;</span><span class="token punctuation">,</span>
-              <span class="token string">&quot;db_xz42/users/last_name&quot;</span><span class="token punctuation">,</span>
-              <span class="token string">&quot;db_xz23/users/last_name&quot;</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;legal&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2025-04-22T06:00:00Z&quot;</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;ref&quot;</span><span class="token operator">:</span> <span class="token string">&quot;login&quot;</span><span class="token punctuation">,</span> <span class="token comment">// cet évènement n'est pas &quot;créateur d'instance&quot;, vous n'êtes donc pas obligé de signaler sa survenue à chaque fois qu'il se produit. Simplement la dernière occurence.</span>
+            <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span> <span class="token comment">//date de déclenchement de cet évènement</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span> 
           <span class="token punctuation">{</span>
-            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;https://iencli_bank_account_infos.fr&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;legal&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2028-04-22T06:00:00Z&quot;</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;ref&quot;</span><span class="token operator">:</span> <span class="token string">&quot;newsletter_opening&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+          <span class="token punctuation">}</span>
         <span class="token punctuation">]</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       <span class="token punctuation">{</span>
-        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-        <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">12</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;events&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
           <span class="token punctuation">{</span>
-            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;users/first_name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;users/last_name&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;legal&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;now&quot;</span>
+            <span class="token property">&quot;ref&quot;</span><span class="token operator">:</span> <span class="token string">&quot;invoice_created&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
           <span class="token punctuation">}</span><span class="token punctuation">,</span>
           <span class="token punctuation">{</span>
-            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;https://iencli_bank_account_infos.fr&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;legal&quot;</span><span class="token punctuation">,</span>
-            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;now&quot;</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;ref&quot;</span><span class="token operator">:</span> <span class="token string">&quot;invoice_created&quot;</span><span class="token punctuation">,</span> <span class="token comment">// cet évènement est &quot;créateur d'instance&quot;, vous devez le signaler à Alias autant de fois qu'il s'est produit</span>
+            <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:10:00Z&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;events&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token property">&quot;ref&quot;</span><span class="token operator">:</span> <span class="token string">&quot;user_created&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;date&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+          <span class="token punctuation">}</span>
         <span class="token punctuation">]</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
-</code></pre></div><p>Que signifie cet objet ?</p> <p>Pour l'utilisateur référencé sous l'identité 1 chez Alias, vous aurez besoin de passer le prénom et le nom situés dans les tables users en archivage légal en 2025. Les informations concernant cet utilisateur stockées dans le bucket devront, elles, être archivées en 2028.</p> <p>Pour l'utilisateur 2, toutes les données mentionnées dans l'objet doivent être passées en archivage légal dès maintenant.</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/alias-api-documentation/developers/handle-consents.html">
+</code></pre></div><p>En réponse, Alias vous enverra les durées de conservation calculées pour chaque instance de donnée:</p> <div class="language-json extra-class"><pre class="language-json"><code>  <span class="token punctuation">{</span>
+    <span class="token property">&quot;items&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> 
+        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;durations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;archive&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2022-04-22T06:00:00Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_xz42/users/first_name&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;db_xz23&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom-1&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_xz42/users/last_name&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;db_xz23&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom-1&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> 
+        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">12</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;durations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;archive&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2022-04-22T06:00:00Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://facture-bucket.com&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom-facture&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://facture-bucket.com&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom-facture&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;archive&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2022-04-22T06:10:00Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://facture-bucket.com&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom-facture&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:10:00Z&quot;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://facture-bucket.com&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom-facture&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:10:00Z&quot;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>  
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> 
+        <span class="token property">&quot;identityRef&quot;</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;durations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token property">&quot;nextState&quot;</span><span class="token operator">:</span> <span class="token string">&quot;archive&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nextStateDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2022-04-22T06:00:00Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;locations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_xz42/users/first_name&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;db_xz23&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRefs&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prénom-1&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;db_xz42/users/last_name&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;replications&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;db_xz23&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;dataTypeRef&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nom-1&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;eventDate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-04-22T06:00:00Z&quot;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/alias-api-documentation/developers/handle-consents.html">
         Gérer les consentements
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/alias-api-documentation/assets/js/app.6c19113c.js" defer></script><script src="/alias-api-documentation/assets/js/2.7b8a4189.js" defer></script><script src="/alias-api-documentation/assets/js/13.38409b13.js" defer></script>
+    <script src="/alias-api-documentation/assets/js/app.1b308649.js" defer></script><script src="/alias-api-documentation/assets/js/2.7b8a4189.js" defer></script><script src="/alias-api-documentation/assets/js/13.dd3a3b76.js" defer></script>
   </body>
 </html>
